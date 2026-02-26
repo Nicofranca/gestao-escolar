@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ProfessorRepository {
     Professor save(Professor professor) throws SQLException;
-    Professor findById(Long id) throws SQLException;
+    Professor findById(int id) throws SQLException;
     List<Professor> findAll() throws SQLException;
     void update(Professor professor) throws SQLException;
-    void delete(Long id) throws SQLException;
+    void delete(int id) throws SQLException;
 }

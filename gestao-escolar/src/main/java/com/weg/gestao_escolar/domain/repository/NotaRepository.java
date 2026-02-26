@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface NotaRepository {
     Nota save(Nota nota) throws SQLException;
-    Nota findById(Long id) throws SQLException;
+    Nota findById(int id) throws SQLException;
     List<Nota> findAll() throws SQLException;
     void update(Nota nota) throws SQLException;
-    void delete(Long id) throws SQLException;
+    void delete(int id) throws SQLException;
 
-    List<Nota> findByAlunoId(Long alunoId) throws SQLException;
-    List<Nota> findByAulaId(Long aulaId) throws SQLException;
+    List<Nota> findByAlunoId(int alunoId) throws SQLException;
+    List<Nota> findByAulaId(int aulaId) throws SQLException;
 }

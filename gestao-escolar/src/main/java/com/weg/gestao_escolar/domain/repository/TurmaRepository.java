@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface TurmaRepository {
     Turma save(Turma turma) throws SQLException;
-    Turma findById(Long id) throws SQLException;
+    Turma findById(int id) throws SQLException;
     List<Turma> findAll() throws SQLException;
     void update(Turma turma) throws SQLException;
-    void delete(Long id) throws SQLException;
+    void delete(int id) throws SQLException;
 
     //turma_aluno
-    void matricularAluno(Long turmaId, Long alunoId) throws SQLException;
-    void removerAlunoDaTurma(Long turmaId, Long alunoId) throws SQLException;
-    List<Aluno> findAlunosByTurmaId(Long turmaId) throws SQLException;
+    void matricularAluno(int turmaId, int alunoId) throws SQLException;
+    void removerAlunoDaTurma(int turmaId, int alunoId) throws SQLException;
+    List<Aluno> findAlunosByTurmaId(int turmaId) throws SQLException;
 }

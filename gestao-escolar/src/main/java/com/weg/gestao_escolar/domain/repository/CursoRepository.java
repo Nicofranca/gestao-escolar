@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface CursoRepository {
     Curso save(Curso curso) throws SQLException;
-    Curso findById(Long id) throws SQLException;
+    Curso findById(int id) throws SQLException;
     List<Curso> findAll() throws SQLException;
     void update(Curso curso) throws SQLException;
-    void delete(Long id) throws SQLException;
+    void delete(int id) throws SQLException;
 }

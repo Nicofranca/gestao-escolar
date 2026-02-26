@@ -47,7 +47,36 @@ public class AlunoRepositoryImpl implements AlunoRepository {
 
     @Override
     public Aluno findById(int id) throws SQLException {
-        return null;
+        String query = """
+            SELECT 
+              id
+            , nome
+            , email
+            , matricula
+            , data_nascimento
+            FROM 
+            aluno
+            WHERE id = ?
+            """;
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+
+            stmt.setInt(1, id);
+
+            try(ResultSet rs = stmt.executeQuery()){
+                if(rs.next()){
+                    int idEncontrado = rs.getInt("id");
+                    String nome = rs.getString("nome");
+                    String email = rs.getString("email");
+                    String matricula = rs.getString("matricula");
+                    LocalDate dataNascimento = rs.getObject("data_nascimento", LocalDate.class);
+
+                    return new Aluno(idEncontrado, nome, email, matricula, dataNascimento);
+                }
+                return null;
+            }
+        }
     }
 
     @Override
@@ -88,11 +117,41 @@ public class AlunoRepositoryImpl implements AlunoRepository {
 
     @Override
     public void update(Aluno aluno) throws SQLException {
+        String query = """
+            UPDATE aluno SET 
+              nome = ?
+            , email = ?
+            , matricula = ?
+            , data_nascimento = ?
+            WHERE id = ?
+            """;
 
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+
+            stmt.setString(1, aluno.getNome());
+            stmt.setString(2, aluno.getEmail());
+            stmt.setString(3, aluno.getMatricula());
+            stmt.setObject(4, aluno.getDataNascimento());
+            stmt.setInt(5, aluno.getId());
+
+            stmt.executeUpdate();
+        }
     }
 
     @Override
     public void delete(int id) throws SQLException {
+        String query = """
+            DELETE FROM aluno 
+            WHERE id = ?
+            """;
 
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)){
+
+            stmt.setInt(1, id);
+
+            stmt.executeUpdate();
+        }
     }
 }

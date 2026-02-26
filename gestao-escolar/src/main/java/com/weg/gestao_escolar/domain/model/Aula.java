@@ -5,19 +5,19 @@ import java.time.LocalDate;
 public class Aula {
     private int id;
     private int turmaId;
-    private LocalDate dataNascimento;
+    private LocalDate dataHora;
     private String assunto;
 
     public Aula(String assunto, LocalDate dataNascimento, int turmaId) {
         this.assunto = assunto;
-        this.dataNascimento = dataNascimento;
+        this.dataHora = dataNascimento;
         this.turmaId = turmaId;
     }
 
     public Aula(int id, int turmaId, LocalDate dataNascimento, String assunto) {
         this.id = id;
         this.turmaId = turmaId;
-        this.dataNascimento = dataNascimento;
+        this.dataHora = dataNascimento;
         this.assunto = assunto;
     }
 
@@ -37,12 +37,12 @@ public class Aula {
         this.turmaId = turmaId;
     }
 
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
+    public LocalDate getDataHora() {
+        return dataHora;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDataHora(LocalDate dataHora) {
+        this.dataHora = dataHora;
     }
 
     public String getAssunto() {
