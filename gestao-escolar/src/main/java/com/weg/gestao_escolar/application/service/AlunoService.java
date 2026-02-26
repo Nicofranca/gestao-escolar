@@ -8,6 +8,7 @@ import com.weg.gestao_escolar.domain.repository.AlunoRepository;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class AlunoService {
@@ -48,5 +49,15 @@ public class AlunoService {
         }
     }
 
+    public List<AlunoResponseDTO> findAll(){
+        try {
 
+            return alunoRepository.findAll().stream()
+                    .map(alunoMapper :: responseToEntity)
+                    .toList();
+
+        } catch (SQLException | RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
