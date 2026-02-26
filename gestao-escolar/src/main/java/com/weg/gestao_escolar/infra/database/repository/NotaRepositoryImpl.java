@@ -3,11 +3,13 @@ package com.weg.gestao_escolar.infra.database.repository;
 import com.weg.gestao_escolar.domain.model.Nota;
 import com.weg.gestao_escolar.domain.repository.NotaRepository;
 import com.weg.gestao_escolar.infra.database.connection.Conexao;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class NotaRepositoryImpl implements NotaRepository {
     @Override
     public Nota save(Nota nota) throws SQLException {

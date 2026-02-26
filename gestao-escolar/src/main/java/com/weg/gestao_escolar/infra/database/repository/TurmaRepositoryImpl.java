@@ -4,12 +4,14 @@ import com.weg.gestao_escolar.domain.model.Aluno;
 import com.weg.gestao_escolar.domain.model.Turma;
 import com.weg.gestao_escolar.domain.repository.TurmaRepository;
 import com.weg.gestao_escolar.infra.database.connection.Conexao;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TurmaRepositoryImpl implements TurmaRepository {
     @Override
     public Turma save(Turma turma) throws SQLException {

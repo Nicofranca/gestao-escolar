@@ -3,12 +3,14 @@ package com.weg.gestao_escolar.infra.database.repository;
 import com.weg.gestao_escolar.domain.model.Aula;
 import com.weg.gestao_escolar.domain.repository.AulaRepository;
 import com.weg.gestao_escolar.infra.database.connection.Conexao;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class AulaRepositoryImpl implements AulaRepository {
     @Override
     public Aula save(Aula aula) throws SQLException {

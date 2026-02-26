@@ -8,16 +8,16 @@ public class Aula {
     private LocalDate dataHora;
     private String assunto;
 
-    public Aula(String assunto, LocalDate dataNascimento, int turmaId) {
+    public Aula(String assunto, LocalDate dataHora, int turmaId) {
         this.assunto = assunto;
-        this.dataHora = dataNascimento;
+        this.dataHora = dataHora;
         this.turmaId = turmaId;
     }
 
-    public Aula(int id, int turmaId, LocalDate dataNascimento, String assunto) {
+    public Aula(int id, int turmaId, LocalDate dataHora, String assunto) {
         this.id = id;
         this.turmaId = turmaId;
-        this.dataHora = dataNascimento;
+        this.dataHora = dataHora;
         this.assunto = assunto;
     }
 

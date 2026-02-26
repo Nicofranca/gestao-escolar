@@ -3,11 +3,13 @@ package com.weg.gestao_escolar.infra.database.repository;
 import com.weg.gestao_escolar.domain.model.Professor;
 import com.weg.gestao_escolar.domain.repository.ProfessorRepository;
 import com.weg.gestao_escolar.infra.database.connection.Conexao;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ProfessorRepositoryImpl implements ProfessorRepository {
     @Override
     public Professor save(Professor professor) throws SQLException {
