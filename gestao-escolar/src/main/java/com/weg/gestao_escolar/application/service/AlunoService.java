@@ -61,11 +61,13 @@ public class AlunoService {
         }
     }
 
-    public void update(AlunoRequestDTO alunoRequestDTO){
+    public AlunoResponseDTO update(AlunoRequestDTO alunoRequestDTO){
         try {
             Aluno aluno = alunoMapper.requestToEntity(alunoRequestDTO);
 
             alunoRepository.update(aluno);
+
+            return alunoMapper.responseToEntity(aluno);
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao atualizar aluno! "+e);
         }
