@@ -31,7 +31,20 @@ public class AlunoService {
             return alunoResponseDTO;
 
         } catch (SQLException | RuntimeException e) {
-            throw new RuntimeException("Erro ao salvar Aluno!" + e);
+            throw new RuntimeException("Erro ao salvar Aluno! " + e);
+        }
+    }
+
+    public AlunoResponseDTO findById(int id){
+        try {
+            Aluno aluno = alunoRepository.findById(id);
+
+            AlunoResponseDTO alunoResponseDTO = alunoMapper.responseToEntity(aluno);
+
+            return alunoResponseDTO;
+
+        } catch (SQLException | RuntimeException e) {
+            throw new RuntimeException("Erro ao procurar aluno com id! "+e);
         }
     }
 
