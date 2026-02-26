@@ -1,6 +1,11 @@
 package com.weg.gestao_escolar.application.dto.aluno;
 
-public record AlunoRequestDTO (
+import java.time.LocalDate;
 
+public record AlunoRequestDTO (
+        String nome,
+        String email,
+        String matricula,
+        LocalDate dataNascimento
 ){
 }

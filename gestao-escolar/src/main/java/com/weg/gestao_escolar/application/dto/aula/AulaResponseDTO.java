@@ -1,6 +1,11 @@
 package com.weg.gestao_escolar.application.dto.aula;
 
-public record AulaResponseDTO(
+import java.time.LocalDate;
 
+public record AulaResponseDTO(
+        int id,
+        int turmaId,
+        LocalDate dataHora,
+        String assunto
 ) {
 }
