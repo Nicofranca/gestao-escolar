@@ -70,4 +70,12 @@ public class AlunoService {
             throw new RuntimeException("Erro ao atualizar aluno! "+e);
         }
     }
+
+    public void delete(int id){
+        try {
+            alunoRepository.delete(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
