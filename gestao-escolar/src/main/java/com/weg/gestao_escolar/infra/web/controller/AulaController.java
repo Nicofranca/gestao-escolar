@@ -1,4 +1,4 @@
-package com.weg.gestao_escolar.infra.http.controller;
+package com.weg.gestao_escolar.infra.web.controller;
 
 import com.weg.gestao_escolar.application.dto.aluno.AlunoRequestDTO;
 import com.weg.gestao_escolar.application.dto.aluno.AlunoResponseDTO;
