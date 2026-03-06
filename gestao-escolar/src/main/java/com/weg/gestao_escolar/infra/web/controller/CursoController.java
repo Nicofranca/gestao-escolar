@@ -32,6 +32,11 @@ public class CursoController {
         return cursoService.save(cursoRequestDTO);
     }
 
+    @PutMapping
+    public void update(@RequestBody CursoRequestDTO cursoRequestDTO){
+        cursoService.update(cursoRequestDTO);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         cursoService.delete(id);
