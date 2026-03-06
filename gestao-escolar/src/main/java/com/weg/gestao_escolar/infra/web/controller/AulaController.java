@@ -5,6 +5,7 @@ import com.weg.gestao_escolar.application.dto.aluno.AlunoResponseDTO;
 import com.weg.gestao_escolar.application.dto.aula.AulaRequestDTO;
 import com.weg.gestao_escolar.application.dto.aula.AulaResponseDTO;
 import com.weg.gestao_escolar.application.service.AulaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,8 +31,13 @@ public class AulaController {
     }
 
     @PostMapping
-    public AulaResponseDTO save(@RequestBody AulaRequestDTO aulaRequestDTO){
+    public AulaResponseDTO save(@Valid @RequestBody AulaRequestDTO aulaRequestDTO){
         return aulaService.save(aulaRequestDTO);
+    }
+
+    @PutMapping
+    public void update(@Valid @RequestBody AulaRequestDTO aulaRequestDTO){
+        aulaService.update(aulaRequestDTO);
     }
 
     @DeleteMapping("/{id}")

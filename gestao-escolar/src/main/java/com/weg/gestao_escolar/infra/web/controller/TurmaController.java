@@ -4,6 +4,7 @@ package com.weg.gestao_escolar.infra.web.controller;
 import com.weg.gestao_escolar.application.dto.turma.TurmaRequestDTO;
 import com.weg.gestao_escolar.application.dto.turma.TurmaResponseDTO;
 import com.weg.gestao_escolar.application.service.TurmaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class TurmaController {
     }
 
     @PostMapping
-    public TurmaResponseDTO save(@RequestBody TurmaRequestDTO professorRequestDTO){
+    public TurmaResponseDTO save(@Valid @RequestBody TurmaRequestDTO professorRequestDTO){
         return turmaService.save(professorRequestDTO);
     }
 
@@ -33,7 +34,7 @@ public class TurmaController {
     }
 
     @PutMapping
-    public void update(@RequestBody TurmaRequestDTO professorRequestDTO){
+    public void update(@Valid @RequestBody TurmaRequestDTO professorRequestDTO){
         turmaService.update(professorRequestDTO);
     }
 

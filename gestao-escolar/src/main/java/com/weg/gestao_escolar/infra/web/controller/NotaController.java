@@ -4,6 +4,7 @@ import com.weg.gestao_escolar.application.dto.nota.NotaRequestDTO;
 import com.weg.gestao_escolar.application.dto.nota.NotaResponseDTO;
 import com.weg.gestao_escolar.application.mapper.NotaMapper;
 import com.weg.gestao_escolar.application.service.NotaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class NotaController {
     }
 
     @PostMapping
-    public NotaResponseDTO save(@RequestBody NotaRequestDTO notaRequestDTO){
+    public NotaResponseDTO save(@Valid @RequestBody NotaRequestDTO notaRequestDTO){
         return notaService.save(notaRequestDTO);
     }
 
@@ -34,7 +35,7 @@ public class NotaController {
     }
 
     @PutMapping
-    public void update(@RequestBody NotaRequestDTO notaRequestDTO){
+    public void update(@Valid @RequestBody NotaRequestDTO notaRequestDTO){
         notaService.update(notaRequestDTO);
     }
 
