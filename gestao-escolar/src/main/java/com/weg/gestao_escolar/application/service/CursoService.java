@@ -8,6 +8,7 @@ import com.weg.gestao_escolar.domain.repository.CursoRepository;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 public class CursoService {
@@ -27,6 +28,46 @@ public class CursoService {
 
             return cursoMapper.responseToEntity(curso);
         } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<CursoResponseDTO> findAll(){
+        try {
+            return cursoRepository.findAll().stream()
+                    .map(cursoMapper::responseToEntity)
+                    .toList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public CursoResponseDTO findById(int id){
+        try {
+            Curso curso = cursoRepository.findById(id);
+
+            return cursoMapper.responseToEntity(curso);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void update(CursoRequestDTO cursoRequestDTO){
+        try {
+            Curso curso = cursoMapper.requestToEntity(cursoRequestDTO);
+
+            cursoRepository.update(curso);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void delete(int id){
+        try {
+            cursoRepository.delete(id);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
