@@ -1,11 +1,8 @@
 package com.weg.gestao_escolar.application.service;
 
-import com.weg.gestao_escolar.application.dto.professor.ProfessorRequestDTO;
-import com.weg.gestao_escolar.application.dto.professor.ProfessorResponseDTO;
 import com.weg.gestao_escolar.application.dto.turma.TurmaRequestDTO;
 import com.weg.gestao_escolar.application.dto.turma.TurmaResponseDTO;
 import com.weg.gestao_escolar.application.mapper.TurmaMapper;
-import com.weg.gestao_escolar.domain.model.Professor;
 import com.weg.gestao_escolar.domain.model.Turma;
 import com.weg.gestao_escolar.domain.repository.TurmaRepository;
 import org.springframework.stereotype.Service;
