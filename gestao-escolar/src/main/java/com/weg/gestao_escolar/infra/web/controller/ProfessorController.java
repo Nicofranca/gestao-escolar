@@ -3,6 +3,7 @@ package com.weg.gestao_escolar.infra.web.controller;
 import com.weg.gestao_escolar.application.dto.professor.ProfessorRequestDTO;
 import com.weg.gestao_escolar.application.dto.professor.ProfessorResponseDTO;
 import com.weg.gestao_escolar.application.service.ProfessorService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public ProfessorResponseDTO save(@RequestBody ProfessorRequestDTO professorRequestDTO){
+    public ProfessorResponseDTO save(@Valid @RequestBody ProfessorRequestDTO professorRequestDTO){
         return professorService.save(professorRequestDTO);
     }
 
@@ -33,7 +34,7 @@ public class ProfessorController {
     }
 
     @PutMapping
-    public void update(@RequestBody ProfessorRequestDTO professorRequestDTO){
+    public void update(@Valid @RequestBody ProfessorRequestDTO professorRequestDTO){
         professorService.update(professorRequestDTO);
     }
 
